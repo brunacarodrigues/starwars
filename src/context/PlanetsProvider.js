@@ -15,7 +15,7 @@ function PlanetsProvider({ children }) {
       setFilter(fetch);
     };
     fetchPlanets();
-  }, []);
+  }, []); // remover regra para ignorar reackt-hooks ou não???
 
   const filterSearchs = (name) => {
     const filterResults = planets.filter((planet) => (
@@ -24,9 +24,32 @@ function PlanetsProvider({ children }) {
     setFilter(filterResults);
   };
 
+  // lógica para filtrar planetas pelos campos de seleção e input
+
+  const filterColumns = (column, operator, number) => {
+    if (operator === 'maior que') {
+      const result = filter.filter((planet) => (
+        Number(planet[column]) > Number(number)
+      ));
+      setFilter(result);
+    }
+    if (operator === 'menor que') {
+      const result = filter.filter((planet) => (
+        Number(planet[column]) < Number(number)
+      ));
+      setFilter(result);
+    }
+    if (operator === 'igual a') {
+      const result = filter.filter((planet) => (
+        Number(planet[column]) === Number(number)
+      ));
+      setFilter(result);
+    }
+  };
+
   const values = useMemo(() => ({
-    planets, filter, filterSearchs,
-  }), [planets, filter]);
+    planets, filter, filterSearchs, filterColumns,
+  }), [planets, filter]); // remover regra para ignorar reackt-hooks ou não???
 
   return (
     <PlanetsContext.Provider value={ values }>
