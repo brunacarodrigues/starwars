@@ -61,15 +61,24 @@ function PlanetsProvider({ children }) {
     setSelect(newOptions[0]);
   };
 
+  const deleteFilters = () => {
+    setFilter(planets);
+    setOptions(dataPlanets);
+    setSelect(options[0]);
+  };
+
   const values = useMemo(() => ({
     planets,
     filter,
+    setFilter,
     filterSearchs,
     filterColumns,
     options,
+    setOptions,
     select,
     resultsFilter,
     changeFilter,
+    deleteFilters,
   }), [planets, filter, options, select]); // remover regra para ignorar reackt-hooks ou não???
 
   return (
