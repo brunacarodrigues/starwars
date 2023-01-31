@@ -2,27 +2,33 @@ import React, { useState, useContext } from 'react';
 import planetsContext from '../context/PlanetsContext';
 
 function FilterColumns() {
-  const { filterColumns } = useContext(planetsContext);
-  const [column, setColumn] = useState('population');
+  const {
+    filterColumns,
+    options,
+    resultsFilter,
+    select,
+    changeFilter,
+  } = useContext(planetsContext);
   const [operator, setOperator] = useState('maior que');
   const [number, setNumber] = useState(0);
 
   const selectClick = () => {
-    filterColumns(column, operator, number);
+    filterColumns(select, operator, number);
+    resultsFilter(select);
   };
+
+  const renderOptions = () => options.map((opt) => (
+    <option key={ opt } value={ opt }>{ opt }</option>
+  ));
 
   return (
     <label htmlFor="filter-select-planets">
       <select
         data-testid="column-filter"
-        value={ column }
-        onChange={ ({ target: { value } }) => setColumn(value) }
+        value={ select }
+        onChange={ changeFilter }
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        { renderOptions() }
       </select>
       <select
         data-testid="comparison-filter"
