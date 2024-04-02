@@ -1,10 +1,2 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Projeto do módulo de Front-End.
+Context API e Hooks: Desenvolvimento de uma aplicação web que consome uma API de Star Wars para exibir dados sobre planetas em uma tabela, implementação de filtros de texto e numéricos, ordenação de colunas, manipulação de estado da aplicação, escrita de testes unitários para garantir a qualidade do código e boas práticas de desenvolvimento.
